@@ -1,4 +1,5 @@
 # Proiect PCLP3
+Pavel Gabriel-Ioan 313CC
 ## Lista functiilor
 ### examine.py:
 >listData(df) - Construieste o lista ce contine informatii despre dataframe:
