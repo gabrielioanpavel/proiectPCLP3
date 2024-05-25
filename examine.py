@@ -70,6 +70,12 @@ def prcNullCols(df: pd.DataFrame):
         arr.append(temp)
     return arr
 
+# Calculeaza procentul de copii aflati la bord
+def prcChildren(df: pd.DataFrame):
+    c = sum(df['Age'] < 18)
+    t = len(df)
+    return round(c/t*100, 2)
+
 # Numarul si proportia valorilor lipsa pentru fiecare coloana
 def nullCols(df: pd.DataFrame):
     l = len(df)
@@ -120,3 +126,11 @@ def detMaleSurv(df: pd.DataFrame):
     a3 = sum((df['Sex'] == 'male') & (df['Survived'] == 1) & (df['Age'] > 40) & (df['Age'] <= 60))
     a4 = sum((df['Sex'] == 'male') & (df['Survived'] == 1) & (df['Age'] > 60))
     return a1, a2, a3, a4
+
+# Determina rata de supraviatuire a copiilor si a barbatilor
+def detChildAdultSurvivalRate(df: pd.DataFrame):
+    c = sum((df['Age'] < 18) & (df['Survived'] == 1))
+    a = sum((df['Age'] >= 18) & (df['Survived'] == 1))
+    tc = sum(df['Age'] < 18)
+    ta = sum(df['Age'] >= 18)
+    return round(c/tc*100, 2), round(a/ta*100, 2)

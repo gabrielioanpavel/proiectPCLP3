@@ -48,3 +48,12 @@ def maleSurvivalRate(df: pd.DataFrame):
     ax.set_ylabel('Rata de supravietuire (%)')
     ax.bar(['0 - 20', '21 - 40', '41 - 60', '60+'], [p1, p2, p3, p4])
     plt.show()
+
+def caSurvialRate(df: pd.DataFrame):
+    cRate, aRate = detChildAdultSurvivalRate(df)
+    fig, ax = plt.subplots()
+    ax.set_title('Rata de supravietuire a copiilor si a adultilor')
+    ax.set_xlabel('Oameni')
+    ax.set_ylabel('Rata de supravietuire (%)')
+    ax.bar(['Copii (Age < 18)', 'Adulti (Age >= 18)'], [cRate, aRate])
+    plt.show()

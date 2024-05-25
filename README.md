@@ -3,7 +3,7 @@
 
 Pavel Gabriel-Ioan 313CC
 
-## Scurta descriere a programului
+<!-- ## Scurta descriere a programului
 
 Programul incepe prin a prelua datele din setul de antrenare `train.csv` si a le pune
 intr-un dataset `pandas`. Urmatorul pas este examinarea datelor. Acest lucru se face
@@ -24,7 +24,7 @@ un grafic pentru a reprezenta aceste date. Sunt folosite functiile `detAges()` s
 barbati care au supravietuit in functie de categoria de varsta si se afiseaza un
 grafic ce arata cum influenteaza varsta procentul de supravietuire al acestora.
 Sunt folosite functiile `detMaleSurv()` si `maleSurvivalRate()` din `examine.py`
-si `plots.py`.
+si `plots.py`. -->
 
 ## Descriere functii
 
@@ -49,6 +49,8 @@ si `plots.py`.
 >**`prcNullCols(df)`** - Calculeaza procentele valorilor lipsa ale fiecare coloana
 care contine astfel de elemente pentru fiecare dintre cele doua clase (coloana Survived).
 >
+>**`prcChildren(df)`** - Calculeaza procentul de copii aflati la bord
+>
 >**`nullCols(df)`** - Calculeaza numarul si proportia valorilor lipsa din coloanele
 care contin astfel de elemente.
 >
@@ -58,6 +60,8 @@ in dataframe.
 >
 >**`detMaleSurv(df)`** - Determina numarul de barbati supravietuitori pentru fiecare
 categorie de varsta.
+>
+>**`detChildAdultSurvivalRate(df)`** - Determina rata de supraviatuire a copiilor si a barbatilor
 
 ### plots.py
 
@@ -74,3 +78,6 @@ a pasagerilor.
 >
 >**`maleSurvivalRate(df)`** - Construieste un grafic ce reprezinta cum influenteaza varsta procentul
 de supravietuire al barbatilor.
+>
+>**`caSurvivalRate(df)`** - Construieste un grafic ce reprezinta ratele de supravietuire pentru
+copii si adulti
