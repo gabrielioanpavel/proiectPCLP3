@@ -58,5 +58,5 @@ de barbati/femei.
 >**`histograms(df)`** - Parcurge pe rand fiecare coloana din dataframe, verifica daca
 este numerica si, daca da, ii construieste o histograma.
 >
->**`agesPlot`** - Construieste graficul ce reprezinta repartitia pe categorii de varsta
+>**`agesPlot(df, ageList)`** - Construieste graficul ce reprezinta repartitia pe categorii de varsta
 a pasagerilor.
