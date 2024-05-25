@@ -1,8 +1,42 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from collections import Counter
 from examine import *
 from plots import *
+
+def fillEmpty(df: pd.DataFrame):
+    emp = nullColID(df)
+    for col in emp:
+        if df[col].dtype != object:
+            df1 = df[df['Survived'] == 1]
+            avgA = df1[col].sum() / df1[col].count()
+            df1 = df[df['Survived'] == 0]
+            avgD = df1[col].sum() / df1[col].count()
+            for index, row in df.iterrows():
+                if pd.isnull(row[col]):
+                    if row['Survived'] == 1:
+                        df.at[index, col] = avgA
+                    else:
+                        df.at[index, col] = avgD
+                    pass
+        else:
+            df1 = df[df['Survived'] == 1]
+            x = np.array(df1[col])
+            np.nan_to_num(x, copy=False, nan='')
+            freq = Counter(x)
+            avgA = max(freq, key=freq.get)
+            df1 = df[df['Survived'] == 0]
+            x = np.array(df1[col])
+            np.nan_to_num(x, copy=False, nan='')
+            freq = Counter(x)
+            avgD = max(freq, key=freq.get)
+            for index, row in df.iterrows():
+                if pd.isnull(row[col]):
+                    if row['Survived'] == 1:
+                        df.at[index, col] = avgA
+                    else:
+                        df.at[index, col] = avgD
 
 df = pd.read_csv('Titanic Dataset/train.csv')
 
@@ -30,3 +64,5 @@ maleSurvivalRate(df)
 
 print(f"Procentul de copii aflati la bord este de {prcChildren(df)}%.\n")
 caSurvialRate(df)
+
+fillEmpty(df)
