@@ -71,6 +71,6 @@ este numerica si, daca da, ii construieste o histograma.
 >
 >**`agesPlot(df, ageList)`** - Construieste graficul ce reprezinta repartitia pe categorii de varsta
 a pasagerilor.
+>
 >**`maleSurvivalRate(df)`** - Construieste un grafic ce reprezinta cum influenteaza varsta procentul
 de supravietuire al barbatilor.
->
