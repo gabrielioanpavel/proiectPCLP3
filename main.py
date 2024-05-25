@@ -24,3 +24,6 @@ print(f"Procente valori lipsa pentru supravietuitori:\n{np.matrix(prcNullCols(df
 ageList, ages = detAges(df)
 df.insert(6, "Age category", ages)
 agesPlot(df, ageList)
+
+print(f"Numarul de barbati supravietuitori (in functie de categoria de varsta): {detMaleSurv(df)}\n")
+maleSurvivalRate(df)

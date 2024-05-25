@@ -34,3 +34,17 @@ def agesPlot(df: pd.DataFrame, ageList):
     ax.set_ylabel('Varsta')
     ax.bar(['0 - 20', '21 - 40', '41 - 60', '60+'], ageList)
     plt.show()
+
+def maleSurvivalRate(df: pd.DataFrame):
+    t = sum(df['Sex'] == 'male')
+    a1, a2, a3, a4 = detMaleSurv(df)
+    p1 = round(a1/t*100, 2)
+    p2 = round(a2/t*100, 2)
+    p3 = round(a3/t*100, 2)
+    p4 = round(a4/t*100, 2)
+    fig, ax = plt.subplots()
+    ax.set_title('Rata de supravietuire a barbatilor in functie de varsta')
+    ax.set_xlabel('Categorii de varsta')
+    ax.set_ylabel('Rata de supravietuire (%)')
+    ax.bar(['0 - 20', '21 - 40', '41 - 60', '60+'], [p1, p2, p3, p4])
+    plt.show()

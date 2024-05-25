@@ -112,3 +112,11 @@ def detAges(df: pd.DataFrame):
             ages.append(3)
             continue
     return [a1, a2, a3, a4], ages
+
+# Determina numarul de barbati supravietuitori
+def detMaleSurv(df: pd.DataFrame):
+    a1 = sum((df['Sex'] == 'male') & (df['Survived'] == 1) & (df['Age'] <= 20))
+    a2 = sum((df['Sex'] == 'male') & (df['Survived'] == 1) & (df['Age'] > 20) & (df['Age'] <= 40))
+    a3 = sum((df['Sex'] == 'male') & (df['Survived'] == 1) & (df['Age'] > 40) & (df['Age'] <= 60))
+    a4 = sum((df['Sex'] == 'male') & (df['Survived'] == 1) & (df['Age'] > 60))
+    return a1, a2, a3, a4

@@ -20,7 +20,11 @@ cele doua clase, cu ajutorul functiilor `nullCols()` si `prcNullCols()` din `exa
 In urma finalizarii acestor operatii, determina in ce categorie de varsta se incadreaza
 fiecare pasager, insereaza o coloana noua, imediat dupa `Age`, si construieste
 un grafic pentru a reprezenta aceste date. Sunt folosite functiile `detAges()` si
-`agesPlot()` din `examine.py` si `plots.py`.
+`agesPlot()` din `examine.py` si `plots.py`. In continuare, se calculeaza numarul de
+barbati care au supravietuit in functie de categoria de varsta si se afiseaza un
+grafic ce arata cum influenteaza varsta procentul de supravietuire al acestora.
+Sunt folosite functiile `detMaleSurv()` si `maleSurvivalRate()` din `examine.py`
+si `plots.py`.
 
 ## Descriere functii
 
@@ -51,6 +55,9 @@ care contin astfel de elemente.
 >**`detAges(df)`** - Determina numarul de oameni incadrati in fiecare categorie
 de varsa si construieste o lista pentru a fi folosita in adaugarea noii coloane
 in dataframe.
+>
+>**`detMaleSurv(df)`** - Determina numarul de barbati supravietuitori pentru fiecare
+categorie de varsta.
 
 ### plots.py
 
@@ -64,3 +71,6 @@ este numerica si, daca da, ii construieste o histograma.
 >
 >**`agesPlot(df, ageList)`** - Construieste graficul ce reprezinta repartitia pe categorii de varsta
 a pasagerilor.
+>**`maleSurvivalRate(df)`** - Construieste un grafic ce reprezinta cum influenteaza varsta procentul
+de supravietuire al barbatilor.
+>
