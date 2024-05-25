@@ -14,6 +14,9 @@ din fiecare clasa si pentru numarul de barbati/femei. Toate datele sunt afisate 
 ecran, alaturi de cate un pie chart pentru fiecare set de procentaje. In urma finalizarii
 examinarii dataframe-ului, se construiesc histograme pentru fiecare coloana numerica
 din tabel si se afiseaza pe ecran (se foloseste functia `histograms()` din `plots.py`).
+In continuare, calculeaza si afiseaza pe ecran coloanele cu valori lipsa, numarul si
+proportia valorilor lipsa din acestea si procentul acestora pentru fiecare dintre
+cele doua clase, cu ajutorul functiilor `nullCols()` si `prcNullCols()` din `examine.py`.
 
 ## Descriere functii
 
@@ -27,11 +30,19 @@ din tabel si se afiseaza pe ecran (se foloseste functia `histograms()` din `plot
 >- *Numarul de valori lipsa*
 >- *Numarul de duplicate*
 >
+>**`nullColID(df)`** - Identifica coloanele care contin valori lipsa.
+>
 >**`prcS(df)`** - Calculeaza procentul de oameni care au supravietuit si oameni care nu au supravietuit.
 >
 >**`prcPclass(df)`** - Calculeaza procentul de pasageri pentru fiecare clasa
 >
 >**`prcSex(df)`** - Calculeaza procentul de barbati si de femei.
+>
+>**`prcNullCols(df)`** - Calculeaza procentele valorilor lipsa ale fiecare coloana
+care contine astfel de elemente pentru fiecare dintre cele doua clase (coloana Survived).
+>
+>**`nullCols(df)`** - Calculeaza numarul si proportia valorilor lipsa din coloanele
+care contin astfel de elemente.
 
 ### plots.py
 

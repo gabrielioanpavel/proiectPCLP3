@@ -17,3 +17,6 @@ pies(df)
 
 # Construire histograme
 histograms(df)
+
+print(nullCols(df))
+print(prcNullCols(df))
