@@ -26,3 +26,11 @@ def histograms(df: pd.DataFrame):
         plt.xlabel('Valori')
         plt.ylabel('Numar de oameni')
         plt.show()
+
+def agesPlot(df: pd.DataFrame, ageList):
+    fig, ax = plt.subplots()
+    ax.set_title('Repartizarea pasagerilor pe categorii de varsta')
+    ax.set_xlabel('Categorii de varsta')
+    ax.set_ylabel('Varsta')
+    ax.bar(['0 - 20', '21 - 40', '41 - 60', '60+'], ageList)
+    plt.show()

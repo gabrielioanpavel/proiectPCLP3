@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 
 def listData(df: pd.DataFrame) -> list:
     dataList = []
@@ -56,7 +57,7 @@ def prcNullCols(df: pd.DataFrame):
         temp.append(col)
         l0 = l1 = n0 = n1 = 0
         for index, row in df.iterrows():
-            if row["Survived"] == 0:
+            if row['Survived'] == 0:
                 l0 += 1
                 if pd.isnull(row[col]):
                     n0 += 1
@@ -83,3 +84,31 @@ def nullCols(df: pd.DataFrame):
         temp.append(round(nulls/nNulls*100, 2))
         arr.append(temp)
     return arr
+
+# Determina numarul de oameni incadrati in fiecare categorie de varsa si construieste
+# o lista pentru a fi folosita in adaugarea noii coloane in dataframe
+def detAges(df: pd.DataFrame):
+    a1 = a2 = a3 = a4 = ukn = 0
+    ages = []
+    for index, row in df.iterrows():
+        if pd.isnull(row['Age']):
+            ukn += 1
+            ages.append(np.nan)
+            continue
+        if row['Age'] <= 20:
+            a1 += 1
+            ages.append(0)
+            continue
+        if row['Age'] > 20 and row['Age'] <= 40:
+            a2 += 1
+            ages.append(1)
+            continue
+        if row['Age'] > 40 and row['Age'] <= 60:
+            a3 += 1
+            ages.append(2)
+            continue
+        if row['Age'] > 60:
+            a4 += 1
+            ages.append(3)
+            continue
+    return [a1, a2, a3, a4], ages

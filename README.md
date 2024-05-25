@@ -43,6 +43,10 @@ care contine astfel de elemente pentru fiecare dintre cele doua clase (coloana S
 >
 >**`nullCols(df)`** - Calculeaza numarul si proportia valorilor lipsa din coloanele
 care contin astfel de elemente.
+>
+>**`detAges(df)`** - Determina numarul de oameni incadrati in fiecare categorie
+de varsa si construieste o lista pentru a fi folosita in adaugarea noii coloane
+in dataframe.
 
 ### plots.py
 
@@ -53,3 +57,6 @@ de barbati/femei.
 >
 >**`histograms(df)`** - Parcurge pe rand fiecare coloana din dataframe, verifica daca
 este numerica si, daca da, ii construieste o histograma.
+>
+>**`agesPlot`** - Construieste graficul ce reprezinta repartitia pe categorii de varsta
+a pasagerilor.
