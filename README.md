@@ -17,6 +17,10 @@ din tabel si se afiseaza pe ecran (se foloseste functia `histograms()` din `plot
 In continuare, calculeaza si afiseaza pe ecran coloanele cu valori lipsa, numarul si
 proportia valorilor lipsa din acestea si procentul acestora pentru fiecare dintre
 cele doua clase, cu ajutorul functiilor `nullCols()` si `prcNullCols()` din `examine.py`.
+In urma finalizarii acestor operatii, determina in ce categorie de varsta se incadreaza
+fiecare pasager, insereaza o coloana noua, imediat dupa `Age`, si construieste
+un grafic pentru a reprezenta aceste date. Sunt folosite functiile `detAges()` si
+`agesPlot()` din `examine.py` si `plots.py`.
 
 ## Descriere functii
 
