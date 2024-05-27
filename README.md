@@ -142,6 +142,7 @@ de supravietuire al barbatilor.
 >
 >**`caSurvivalRate(df)`** - Construieste un grafic ce reprezinta ratele de supravietuire pentru
 copii si adulti
+>
 >**`titleGenderPlot(df)`** - Construieste un garfic asociat numarului de oameni carora le corespunde
 titlul cu sexul si carora nu.
 >
