@@ -23,13 +23,13 @@ def fillEmpty(df: pd.DataFrame):
         else:
             df1 = df[df['Survived'] == 1]
             x = np.array(df1[col])
-            np.nan_to_num(x, copy=False, nan='')
             freq = Counter(x)
+            del freq[np.nan]
             avgA = max(freq, key=freq.get)
             df1 = df[df['Survived'] == 0]
             x = np.array(df1[col])
-            np.nan_to_num(x, copy=False, nan='')
             freq = Counter(x)
+            del freq[np.nan]
             avgD = max(freq, key=freq.get)
             for index, row in df.iterrows():
                 if pd.isnull(row[col]):
@@ -75,4 +75,3 @@ if ok == len(df):
 else:
     print('Nu toate titlurile corespund cu sexul persoanei respective.')
 titleGenderPlot(df)
-print('test')
