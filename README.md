@@ -61,19 +61,19 @@ Am folosit urmatorul cod pentru a gasi toate titlurile prezente in coloana 'Name
 
 ```python
 t = []
-    for index, row in df.iterrows():
-        p = row['Name'].split(',')
-        p = p[1].strip().split(' ')
-        for i in p:
-            if i.endswith('.'):
-                tit = i
-                break
-        try:
-            i = t.index(tit)
-        except ValueError:
-            i = -1
-        if i == -1:
-            t.append(tit)
+for index, row in df.iterrows():
+    p = row['Name'].split(',')
+    p = p[1].strip().split(' ')
+    for i in p:
+        if i.endswith('.'):
+            tit = i
+            break
+    try:
+        i = t.index(tit)
+    except ValueError:
+        i = -1
+    if i == -1:
+        t.append(tit)
 ```
 
 Am construit manual un dictionar cu toate titlurile si am verificat pentru fiecare
