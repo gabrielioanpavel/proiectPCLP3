@@ -75,3 +75,4 @@ if ok == len(df):
 else:
     print('Nu toate titlurile corespund cu sexul persoanei respective.')
 titleGenderPlot(df)
+print('test')
