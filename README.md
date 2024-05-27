@@ -59,7 +59,7 @@ Valorile lipsa din dataframe sunt completate cu ajutorul functiei `fillEmpty(df)
 
 ### main.py
 
-**`fillEmpty(df)`** - Completeaza valorile lipsa din dataframe cu cele obtinute pentru
+>**`fillEmpty(df)`** - Completeaza valorile lipsa din dataframe cu cele obtinute pentru
 media pasagerilor care fac parte din aceeasi clasa.
 
 ### examine.py
