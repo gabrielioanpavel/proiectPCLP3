@@ -57,3 +57,11 @@ def caSurvialRate(df: pd.DataFrame):
     ax.set_ylabel('Rata de supravietuire (%)')
     ax.bar(['Copii (Age < 18)', 'Adulti (Age >= 18)'], [cRate, aRate])
     plt.show()
+
+def titleGenderPlot(df: pd.DataFrame):
+    fig, ax = plt.subplots()
+    ax.set_title('Numar de oameni ale caror titluri corespund sau nu cu sexul')
+    ax.set_xlabel('Corespondenta')
+    ax.set_ylabel('Numar de oameni')
+    ax.bar(['Corespunde', 'Nu corespunde'], titles(df))
+    plt.show()

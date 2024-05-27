@@ -65,4 +65,13 @@ maleSurvivalRate(df)
 print(f"Procentul de copii aflati la bord este de {prcChildren(df)}%.\n")
 caSurvialRate(df)
 
+print(df.count())
 fillEmpty(df)
+print(df.count())
+
+ok, _ = titles(df)
+if ok == len(df):
+    print('Toate titlurile corespund cu sexul persoanei respective.')
+else:
+    print('Nu toate titlurile corespund cu sexul persoanei respective.')
+titleGenderPlot(df)

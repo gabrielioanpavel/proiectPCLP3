@@ -55,6 +55,31 @@ functia `caSurvivalRate(df)`.
 Valorile lipsa din dataframe sunt completate cu ajutorul functiei `fillEmpty(df)` din
 `main.py`.
 
+### Cerinta 9
+
+Am folosit urmatorul cod pentru a gasi toate titlurile prezente in coloana 'Names':
+
+```python
+t = []
+    for index, row in df.iterrows():
+        p = row['Name'].split(',')
+        p = p[1].strip().split(' ')
+        for i in p:
+            if i.endswith('.'):
+                tit = i
+                break
+        try:
+            i = t.index(tit)
+        except ValueError:
+            i = -1
+        if i == -1:
+            t.append(tit)
+```
+
+Am construit manual un dictionar cu toate titlurile si am verificat pentru fiecare
+persoana daca sexul atribuit corespunde cu titlul. Afisez daca tuturor le corespunde
+tilul cu sexul si graficul asociat. Am folosit functiile `titles(df)` si `titleGenderPlot(df)`.
+
 ## Descriere functii
 
 ### main.py
@@ -96,6 +121,8 @@ in dataframe.
 categorie de varsta.
 >
 >**`detChildAdultSurvivalRate(df)`** - Determina rata de supraviatuire a copiilor si a barbatilor
+>
+>**`titles(df)`** - Numara cati oameni au titlul corespunzator cu sexul si cati nu.
 
 ### plots.py
 
@@ -115,3 +142,6 @@ de supravietuire al barbatilor.
 >
 >**`caSurvivalRate(df)`** - Construieste un grafic ce reprezinta ratele de supravietuire pentru
 copii si adulti
+>**`titleGenderPlot(df)`** - Construieste un garfic asociat numarului de oameni carora le corespunde
+titlul cu sexul si carora nu.
+>

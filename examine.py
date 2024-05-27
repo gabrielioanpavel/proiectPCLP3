@@ -134,3 +134,28 @@ def detChildAdultSurvivalRate(df: pd.DataFrame):
     tc = sum(df['Age'] < 18)
     ta = sum(df['Age'] >= 18)
     return round(c/tc*100, 2), round(a/ta*100, 2)
+
+def titles(df: pd.DataFrame):
+    d = {'Mr.': 'male', 'Mrs.': 'female', 'Miss.': 'female', 'Master.': 'male',
+         'Don.': 'male', 'Rev.': 'gender-neutral', 'Dr.': 'gender-neutral', 'Mme.': 'female',
+         'Ms.': 'female', 'Major.': 'gender-neutral', 'Lady.': 'female', 'Sir.': 'male',
+         'Mlle.': 'female', 'Col.': 'gender-neutral', 'Capt.': 'gender-neutral',
+         'Countess.': 'female', 'Jonkheer.': 'male'}
+    good = bad = 0
+    t = []
+    for index, row in df.iterrows():
+        p = row['Name'].split(',')
+        p = p[1].strip().split(' ')
+        for i in p:
+            if i.endswith('.'):
+                tit = i
+                break
+        gen = d[tit]
+        if gen == 'gender-neutral':
+            good += 1
+        else:
+            if gen == row['Sex']:
+                good += 1
+            else:
+                bad += 1
+    return good, bad
