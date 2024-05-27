@@ -3,30 +3,64 @@
 
 Pavel Gabriel-Ioan 313CC
 
-<!-- ## Scurta descriere a programului
+## Explicatii pe cerinte
 
-Programul incepe prin a prelua datele din setul de antrenare `train.csv` si a le pune
-intr-un dataset `pandas`. Urmatorul pas este examinarea datelor. Acest lucru se face
-cu ajutorul functiilor din `examine.py` si din `plots.py` (fiecare functie este descrisa mai jos).
-Examinarea decurge in felul urmator: se calculeaza informatiile despre dataframe, procentajele
-pentru numarul de oameni care au supravietuit/murit, pentru numarul de pasageri
-din fiecare clasa si pentru numarul de barbati/femei. Toate datele sunt afisate pe
-ecran, alaturi de cate un pie chart pentru fiecare set de procentaje. In urma finalizarii
-examinarii dataframe-ului, se construiesc histograme pentru fiecare coloana numerica
-din tabel si se afiseaza pe ecran (se foloseste functia `histograms()` din `plots.py`).
-In continuare, calculeaza si afiseaza pe ecran coloanele cu valori lipsa, numarul si
-proportia valorilor lipsa din acestea si procentul acestora pentru fiecare dintre
-cele doua clase, cu ajutorul functiilor `nullCols()` si `prcNullCols()` din `examine.py`.
-In urma finalizarii acestor operatii, determina in ce categorie de varsta se incadreaza
-fiecare pasager, insereaza o coloana noua, imediat dupa `Age`, si construieste
-un grafic pentru a reprezenta aceste date. Sunt folosite functiile `detAges()` si
-`agesPlot()` din `examine.py` si `plots.py`. In continuare, se calculeaza numarul de
-barbati care au supravietuit in functie de categoria de varsta si se afiseaza un
-grafic ce arata cum influenteaza varsta procentul de supravietuire al acestora.
-Sunt folosite functiile `detMaleSurv()` si `maleSurvivalRate()` din `examine.py`
-si `plots.py`. -->
+### Cerinta 1
+
+Citesc informatiile din `train.csv` si aplic functia `listData(df)` din `examine.py`.
+Aceasta construieste o lista cu toate informatiile cerute: numarul de coloane, numarul
+de linii, o lista cu tipurile de date, numarul de valori lipsa si daca exista duplicate.
+
+### Cerinta 2
+
+Se folosesc functiile `prcS(df)`, `prcPclass(df)` si `prcSex(df)` pentru a determina
+procentul peroanelor care au supravietuit si care nu au supravietuit, procentul
+pasagerilor pentru fiecare tip de clasa, respectiv procentul barbatilor si al
+femeilor. Aceste functii se afla in `examine.py`. Functia `pies(df)` din `plots.py`
+realizeaza graficele pentru a reprezenta datele calculate mai devreme.
+
+### Cerinta 3
+
+Functia `histograms(df)` parcurge toate coloanele numerice din dataframe si construieste
+o histograma pentru fiecare in parte.
+
+### Cerinta 4
+
+Functia `nullColID(df)` identifica coloanele ce contin valori lipsa. Pentru numarul
+si proportia valorilor lipsa din coloane se foloseste functia `nullCols(df)`. Procentul
+acestora pentru fiecare dintre cele doua clase se determina cu ajutorul functiei
+`prcNullCols(df)`.
+
+### Cerinta 5
+
+Numarul de pasageri din fiecare categorie de varsta este determinat cu ajutorul functiei
+`detAges(df)`. Coloana suplimentara se introduce in urma executarii functiei anterior
+mentionate. Graficul pentru aceste date se realizeaza cu ajutorul functiei `agesPlot(df)`.
+
+### Cerinta 6
+
+Numarul de barbati care au supravietuit pentru fiecare dintre cele 4 categorii este
+calculat cu ajutorul functiei `detMaleSurv(df)`. Graficul ce evidentiaza modul in care
+varsta influenteaza rata de supravietuire a barbatilor este construit de functia
+`maleSurvivalRate(df)`.
+
+### Cerinta 7
+
+Procentul copiilor aflati la bord este calculat de functia `prcChildren(df)`. Graficul
+care evidentiata rata de supravietuire pentru copii si pentru adulti este realizat de
+functia `caSurvivalRate(df)`.
+
+### Cerinta 8
+
+Valorile lipsa din dataframe sunt completate cu ajutorul functiei `fillEmpty(df)` din
+`main.py`.
 
 ## Descriere functii
+
+### main.py
+
+**`fillEmpty(df)`** - Completeaza valorile lipsa din dataframe cu cele obtinute pentru
+media pasagerilor care fac parte din aceeasi clasa.
 
 ### examine.py
 
