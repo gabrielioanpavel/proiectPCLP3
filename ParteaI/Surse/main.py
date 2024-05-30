@@ -39,7 +39,7 @@ def fillEmpty(df: pd.DataFrame):
                     else:
                         df.at[index, col] = avgD
 
-df = pd.read_csv('Titanic Dataset/train.csv')
+df = pd.read_csv('../../Titanic Dataset/train.csv')
 
 # Examinare dataframe
 print(f"Date generale despre dataframe:\n{listData(df)}\n")
@@ -57,7 +57,9 @@ print(f"Coloane cu valori lipsa:\n{np.matrix(nullCols(df))}\n")
 print(f"Procente valori lipsa pentru supravietuitori:\n{np.matrix(prcNullCols(df))}\n")
 
 ageList, ages = detAges(df)
+print(f'Numar de pasageri pe categorii de varsta: {ageList}\n')
 df.insert(6, "Age category", ages)
+df.to_csv('../Date/cerinta5.csv')
 agesPlot(df, ageList)
 
 print(f"Numarul de barbati supravietuitori (in functie de categoria de varsta): {detMaleSurv(df)}\n")
@@ -68,9 +70,10 @@ caSurvialRate(df)
 
 print(f'Fiecare coloana cu numarul de valori nenule, inainte de completare:\n{df.count()}\n')
 fillEmpty(df)
+df.to_csv('../Date/cerinta8.csv')
 print(f'Fiecare coloana cu numarul de valori nenule, dupa completare:\n{df.count()}\n')
 
-ok, _ = titles(df)
+ok = titles(df)
 if ok == len(df):
     print('Toate titlurile corespund cu sexul persoanei respective.\n')
 else:

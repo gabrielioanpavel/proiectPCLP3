@@ -8,7 +8,10 @@ def listData(df: pd.DataFrame) -> list:
     dataList.append(len(df.columns))                # Numar de coloane
     dataList.append(len(df))                        # Numar de linii
     dataList.append([str(i) for i in df.dtypes])    # Lista cu tipuri de date
-    dataList.append(sum(df.count()))                # Numar de valori lipsa
+    t = []
+    for col in df:
+        t.append(dataList[1] - df[col].count())     # Numar de valori lipsa pentru fiecare coloana
+    dataList.append(t)
     for i in df.duplicated():
         if i == True:
             dup = False
@@ -141,7 +144,7 @@ def titles(df: pd.DataFrame):
          'Ms.': 'female', 'Major.': 'gender-neutral', 'Lady.': 'female', 'Sir.': 'male',
          'Mlle.': 'female', 'Col.': 'gender-neutral', 'Capt.': 'gender-neutral',
          'Countess.': 'female', 'Jonkheer.': 'male'}
-    good = bad = 0
+    good = 0
     t = []
     for index, row in df.iterrows():
         p = row['Name'].split(',')
@@ -156,9 +159,22 @@ def titles(df: pd.DataFrame):
         else:
             if gen == row['Sex']:
                 good += 1
-            else:
-                bad += 1
-    return good, bad
+    return good
+
+def countTitles(df: pd.DataFrame):
+    t = {}
+    for index, row in df.iterrows():
+        p = row['Name'].split(',')
+        p = p[1].strip().split(' ')
+        for i in p:
+            if i.endswith('.'):
+                tit = i
+                break
+        if tit in t:
+            t[tit] += 1
+        else:
+            t[tit] = 1
+    return t
 
 def familySurvival(df: pd.DataFrame):
     ta = tf = sa = sf = 0

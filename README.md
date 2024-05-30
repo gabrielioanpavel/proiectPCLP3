@@ -47,7 +47,7 @@ varsta influenteaza rata de supravietuire a barbatilor este construit de functia
 ### Cerinta 7
 
 Procentul copiilor aflati la bord este calculat de functia `prcChildren(df)`. Graficul
-care evidentiata rata de supravietuire pentru copii si pentru adulti este realizat de
+care evidentiaza rata de supravietuire pentru copii si pentru adulti este realizat de
 functia `caSurvivalRate(df)`.
 
 ### Cerinta 8
@@ -77,8 +77,9 @@ for index, row in df.iterrows():
 ```
 
 Am construit manual un dictionar cu toate titlurile si am verificat pentru fiecare
-persoana daca sexul atribuit corespunde cu titlul. Afisez daca tuturor le corespunde
-tilul cu sexul si graficul asociat. Am folosit functiile `titles(df)` si `titleGenderPlot(df)`.
+persoana daca sexul atribuit corespunde cu titlul. Apoi, calculez cate persoane corespund
+fiecarui titlu si afisez graficul corespunzator. Am folosit functiile `titles(df)`, `countTitles(df)`
+si `titleGenderPlot(df)`.
 
 ### Cerinta 10
 

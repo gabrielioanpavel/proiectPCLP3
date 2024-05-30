@@ -60,11 +60,8 @@ def caSurvialRate(df: pd.DataFrame):
     plt.show()
 
 def titleGenderPlot(df: pd.DataFrame):
-    fig, ax = plt.subplots()
-    ax.set_title('Numar de oameni ale caror titluri corespund sau nu cu sexul')
-    ax.set_xlabel('Corespondenta')
-    ax.set_ylabel('Numar de oameni')
-    ax.bar(['Corespunde', 'Nu corespunde'], titles(df))
+    t = countTitles(df)
+    plt.bar(range(len(t)), list(t.values()), tick_label=list(t.keys()))
     plt.show()
 
 def tcsPlot(df: pd.DataFrame):
