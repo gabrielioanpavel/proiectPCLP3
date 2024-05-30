@@ -159,3 +159,12 @@ def titles(df: pd.DataFrame):
             else:
                 bad += 1
     return good, bad
+
+def familySurvival(df: pd.DataFrame):
+    ta = tf = sa = sf = 0
+    # total alone, total family, survived alone, survived family
+    ta = sum(df['SibSp'] == 0)
+    tf = sum(df['SibSp'] > 0)
+    sa = sum((df['SibSp'] == 0) & (df['Survived'] == 1))
+    sf = sum((df['SibSp'] > 0) & (df['Survived'] == 1))
+    return round(sa/ta*100, 2), round(sf/tf*100, 2)

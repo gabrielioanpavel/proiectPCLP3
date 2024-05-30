@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import seaborn as sb
 from collections import Counter
 from examine import *
 from plots import *
@@ -43,8 +44,8 @@ df = pd.read_csv('Titanic Dataset/train.csv')
 # Examinare dataframe
 print(f"Date generale despre dataframe:\n{listData(df)}\n")
 print(f"Procentaje supravietuitori (da/nu): \n{prcS(df)}\n")
-print(f"Procentaje clase pasageri: {prcPclass(df)}\n")
-print(f"Procentaje sexe: {prcSex(df)}\n")
+print(f"Procentaje clase pasageri(C1/C2/C3): {prcPclass(df)}\n")
+print(f"Procentaje sexe (Barbati/Femei): {prcSex(df)}\n")
 
 # Construire grafice pentru procentaje
 pies(df)
@@ -65,13 +66,21 @@ maleSurvivalRate(df)
 print(f"Procentul de copii aflati la bord este de {prcChildren(df)}%.\n")
 caSurvialRate(df)
 
-print(df.count())
+print(f'Fiecare coloana cu numarul de valori nenule, inainte de completare:\n{df.count()}\n')
 fillEmpty(df)
-print(df.count())
+print(f'Fiecare coloana cu numarul de valori nenule, dupa completare:\n{df.count()}\n')
 
 ok, _ = titles(df)
 if ok == len(df):
-    print('Toate titlurile corespund cu sexul persoanei respective.')
+    print('Toate titlurile corespund cu sexul persoanei respective.\n')
 else:
     print('Nu toate titlurile corespund cu sexul persoanei respective.')
 titleGenderPlot(df)
+
+sa, sf = familySurvival(df)
+print(f'{sa}% din oamenii care au fost singuri au supravietuit')
+print(f'{sf}% din oamenii care au fost cu familia au supravietuit')
+print('Concluzie: oamenii care au fost cu familia au avut sanse putin mai mari de supravietuire')
+
+tcsPlot(df)
+print('Analizand graficul, putem observa ca, pentru primii 100 de pasageri, tariful a crescut cu clasa, iar cei mai multi supravietuitori sunt in clasa a doua.')

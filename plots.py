@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import seaborn as sb
 from examine import *
 
 def pies(df: pd.DataFrame):
@@ -65,3 +66,6 @@ def titleGenderPlot(df: pd.DataFrame):
     ax.set_ylabel('Numar de oameni')
     ax.bar(['Corespunde', 'Nu corespunde'], titles(df))
     plt.show()
+
+def tcsPlot(df: pd.DataFrame):
+    sb.catplot(x='Pclass', y='Fare', hue='Survived', kind='swarm', data=df.head(100), size=1)

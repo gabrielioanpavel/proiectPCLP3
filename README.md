@@ -80,6 +80,13 @@ Am construit manual un dictionar cu toate titlurile si am verificat pentru fieca
 persoana daca sexul atribuit corespunde cu titlul. Afisez daca tuturor le corespunde
 tilul cu sexul si graficul asociat. Am folosit functiile `titles(df)` si `titleGenderPlot(df)`.
 
+### Cerinta 10
+
+Pentru a verifica daca starea de a fi singur pe Titanic a influentat sansele de supravietuire am
+folosit functia `familySurvival(df)` din `examine.py`, iar pentru a investiga relatia dintre tarif,
+clasa si starea de supravietuire pentru primele 100 de inregistrari am creat un grafic folosind
+`catplot()` din `seaborn` in functia `tcsPlot(df)` din `plots.py`.
+
 ## Descriere functii
 
 ### main.py
@@ -120,9 +127,12 @@ in dataframe.
 >**`detMaleSurv(df)`** - Determina numarul de barbati supravietuitori pentru fiecare
 categorie de varsta.
 >
->**`detChildAdultSurvivalRate(df)`** - Determina rata de supraviatuire a copiilor si a barbatilor
+>**`detChildAdultSurvivalRate(df)`** - Determina rata de supraviatuire a copiilor si a barbatilor.
 >
 >**`titles(df)`** - Numara cati oameni au titlul corespunzator cu sexul si cati nu.
+>
+>**`familySurvival(df)`** - Calculeaza procentul de oameni care au fost singuri si au supravietuit,
+respectiv de oameni care au fost cu familia si au suravietuit.
 
 ### plots.py
 
@@ -141,8 +151,10 @@ a pasagerilor.
 de supravietuire al barbatilor.
 >
 >**`caSurvivalRate(df)`** - Construieste un grafic ce reprezinta ratele de supravietuire pentru
-copii si adulti
+copii si adulti.
 >
 >**`titleGenderPlot(df)`** - Construieste un garfic asociat numarului de oameni carora le corespunde
 titlul cu sexul si carora nu.
 >
+>**`tcsPlot(df)`** - Construieste un grafic in functie de tarif, clasa si starea de supravietuire pentru
+primele 100 de inregistrari din df.
